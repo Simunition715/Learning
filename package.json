@@ -1,0 +1,49 @@
+{
+  "name": "cataboom",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "devops clean",
+    "component": "devops component",
+    "dev": "devops dev",
+    "init": "devops init",
+    "pr": "devops pr --repoUrl \"https://github.com/Simunition715/learning\" --repoType git --masterBranch master",
+    "release": "devops release",
+    "storybook": "devops storybook",
+    "ts": "devops ts",
+    "url": "devops url"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simunition715/learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simunition715/learning/issues"
+  },
+  "homepage": "https://github.com/Simunition715/learning#readme",
+  "devDependencies": {
+    "devops": "github:vega-studio/node-devops"
+  },
+  "type": "module",
+  "types": "./dist/types/ui/index.d.ts",
+  "hosts": {
+    "127.0.0.1": "local.cataboom.com"
+  },
+  "url": {
+    "dev": "https://local.cataboom.com",
+    "figma": "",
+    "repo": "https://github.com/Simunition715/learning"
+  },
+  "skeleton": {
+    "answers": {
+      "repoUrl": "https://github.com/Simunition715/learning",
+      "repoType": "git",
+      "masterBranch": "master",
+      "figmaUrl": ""
+    }
+  }
+}
