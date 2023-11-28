@@ -5,7 +5,13 @@ import { StoryFn } from "@storybook/react";
 export default {
   title: "Components/primitive/Icon",
   component: Icon,
-  decorators: [(Story) => <div style={{ display: "flex", justifyContent: "center" }}><Story /></div>],
+  decorators: [
+    (Story: React.JSX.IntrinsicAttributes) => (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     provider: Icons,
     size: 30,
