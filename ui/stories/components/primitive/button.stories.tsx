@@ -1,11 +1,10 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react";
 import Button from "../../../components/primitive/button/button";
+import React from "react";
+import { Meta, Story } from "@storybook/react";
 
 export default {
   title: "Components/Primitive/Button",
   component: Button,
-  decorators: [(Story) => <div style={{ display: "flex", justifyContent: "center" }}><Story /></div>],
 } as Meta;
 
 const Template: Story = (args) => <Button {...args}>Sign In</Button>;
