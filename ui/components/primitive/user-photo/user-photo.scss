@@ -1,0 +1,31 @@
+.UserPhoto {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__Photo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    border: 1px solid #B7B7B7;
+    background: lightgray 50% / cover no-repeat;
+
+    &--small {
+      width: 50px;
+      height: 50px;
+    }
+
+    &--medium {
+      width: 100px;
+      height: 100px;
+    }
+
+    &--large {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
