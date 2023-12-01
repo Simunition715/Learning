@@ -1,7 +1,9 @@
 import React from "react";
 import { classnames } from "../../../../util/classnames";
 import { cva, VariantProps } from "../../../../util/cva";
+import { InputProps } from "../../../stories/data/primitive/input-props";
 import { observer } from "mobx-react";
+import { when } from "../../../../util/when";
 import "./form-input.scss";
 
 /**
@@ -24,11 +26,11 @@ export interface IFormInput extends VariantProps<typeof FormInputCva.variants> {
   containerProps?: React.HTMLProps<HTMLDivElement>;
   /** Props to apply directly to the input element of this component */
   inputProps?: React.HTMLProps<HTMLInputElement>;
-  /**Icon to display */
+  /** Icon to display */
   icon?: React.JSX.Element | undefined;
   /** Placeholder value */
   placeholder?: string | undefined;
-  /**The label from the placeholder when focused */
+  /** The label from the placeholder when focused */
   label?: string;
 }
 
@@ -47,41 +49,43 @@ export const FormInput = observer(
     const { className, containerProps, mode, placeholder, icon, label } = props;
 
     const [focusState, setFocusState] = React.useState(false);
+    const [filledState, setFilledState] = React.useState("");
 
     const handleFocus = () => {
       setFocusState(true);
     };
+
     const handleBlur = () => {
       setFocusState(false);
     };
 
-    if (!focusState) {
-      return (
-        <div
-          className={classnames(FormInputCva.variants({ mode }), className)}
-          {...containerProps}
-          {...props.inputProps}
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFilledState(e.target.value);
+    };
+
+    return (
+      <div
+        className={classnames(FormInputCva.variants({ mode }), className)}
+        {...containerProps}
+        {...props.inputProps}
+      >
+        <label
+          className={classnames(
+            "FormInput__Label",
+            when(focusState || filledState, "active")
+          )}
         >
-          {icon}
-          <input
-            placeholder={placeholder}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div
-          className={classnames(FormInputCva.variants({ mode }), className)}
-          {...containerProps}
-          {...props.inputProps}
-        >
-          <label className="FormInput__Label">{label}</label>
-          {icon}
-          <input onFocus={handleFocus} onBlur={handleBlur} />
-        </div>
-      );
-    }
+          {label}
+        </label>
+        {icon && React.cloneElement(icon, { className: "FormInput__Icon" })}
+        <input
+          placeholder={placeholder}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          {...InputProps}
+        />
+      </div>
+    );
   })
 );
