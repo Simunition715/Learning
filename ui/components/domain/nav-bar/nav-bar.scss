@@ -1,0 +1,32 @@
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+
+  &__Logo {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #e4e4e4;
+  }
+
+  &__Buttons {
+    display: flex;
+    position: relative;
+  }
+
+  &__Indicator {
+    display: flex;
+    position: absolute;
+    bottom: 200px;
+    height: 4px;
+    background-color: var(--cataboom-blue, #039BFF);
+    transition: left 0.3s ease-out;
+  }
+
+  &__Tabs {
+    display: flex;
+  }
+}
