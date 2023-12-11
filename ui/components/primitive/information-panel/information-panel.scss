@@ -1,0 +1,19 @@
+.InformationPanel {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+
+  &__Title {
+    color: #2C3D55;
+    font-size: 18px;
+    font-weight: 800;
+    word-wrap: break-word;
+  }
+
+  &__Description {
+    color: #2C3D55;
+    font-size: 14px;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+}

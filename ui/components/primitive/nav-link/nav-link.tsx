@@ -75,16 +75,21 @@ export const NavLink = observer(
       "NavLink__Count--active": isActive,
     });
 
+    const handleClick = (e: React.MouseEvent) => {
+      if (props.onToggleActive) {
+        props.onToggleActive(!props.isActive);
+      }
+      if (props.onClick) {
+        props.onClick(e);
+      }
+    };
+
     return (
       <div
         className={classnames(NavLinkCva.variants({ mode }), className)}
         {...containerProps}
       >
-        <button
-          onClick={() => onToggleActive(!isActive)}
-          type="button"
-          className={buttonClassName}
-        >
+        <button onClick={handleClick} type="button" className={buttonClassName}>
           <span className={iconClassName}>{props.icon}</span>
           <span className={textClassName}>{props.text}</span>
           <span className={countClassName}>{props.count}</span>

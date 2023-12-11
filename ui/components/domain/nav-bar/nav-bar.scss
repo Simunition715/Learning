@@ -20,7 +20,6 @@
   &__Indicator {
     display: flex;
     position: absolute;
-    bottom: 200px;
     height: 4px;
     background-color: var(--cataboom-blue, #039BFF);
     transition: left 0.3s ease-out;
