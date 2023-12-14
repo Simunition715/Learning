@@ -4,7 +4,8 @@ import { cva, VariantProps } from "../../../../util/cva";
 import { INavLink, NavLink } from "../../primitive/nav-link/nav-link";
 import { Logo } from "../../primitive/logo/logo";
 import { observer } from "mobx-react";
-import { useLifecycle } from "../../../../util/hooks/useLifecycle";
+import { relativeClientRect } from "../../../../util/relative-client-rect";
+import { useLifecycle } from "../../../../util/hooks/useLifecycle"; // Import the utility
 import "./nav-bar.scss";
 
 // Rendering variants of the NavBar component using cva utility
@@ -40,7 +41,6 @@ export const NavBarBorder: React.FC<{ active: boolean }> = ({ active }) => (
  * A navigation bar component with a logo, buttons, and indicators.
  * - Utilizes the cva utility for rendering variants based on the `mode` prop.
  * - Manages the lifecycle using the useLifecycle hook for initialization.
- * - Handles window resize events to dynamically update indicators' position using useEffect.
  * - Each button in the NavBar can trigger a state change and update the active button and indicators.
  */
 export const NavBar = observer(
@@ -51,58 +51,25 @@ export const NavBar = observer(
     // State for active button index and indicators position
     const [activeButtonIndex, setActiveButtonIndex] = React.useState(0);
     const [indicatorsPosition, setIndicatorsPosition] = React.useState<{
-      target: DOMRect | null;
-      bottom: number;
+      target: HTMLElement | null;
       left: number;
       width: number;
     } | null>(null);
-
-    // Effect hook is used in this component to handle the window resize event and update the position of indicators
-    React.useEffect(() => {
-      // Function to update indicators position
-      const handleResize = () => {
-        setIndicatorsPosition({
-          target: buttonsRef?.current?.getBoundingClientRect() || null,
-          bottom:
-            buttonsRef.current?.children[
-              activeButtonIndex
-            ]?.getBoundingClientRect()?.bottom || 0,
-          left:
-            buttonsRef.current?.children[
-              activeButtonIndex
-            ]?.getBoundingClientRect()?.left || 0,
-          width:
-            buttonsRef.current?.children[
-              activeButtonIndex
-            ]?.getBoundingClientRect()?.width || 0,
-        });
-      };
-
-      // Attach resize event listener after mounting
-      window.addEventListener("resize", handleResize);
-
-      // Cleanup the event listener on component unmount
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, [activeButtonIndex, buttonsRef, indicatorsPosition]);
 
     // Lifecycle hook is used for lifecycle management, specifically for initialization (didMount) of the component.
     useLifecycle({
       willMount: () => true,
       didMount: () => {
-        // Initialize active button index and indicators position
-        setActiveButtonIndex(0);
-        const buttonRect =
-          buttonsRef.current?.children[
-            activeButtonIndex
-          ].getBoundingClientRect();
-        setIndicatorsPosition({
-          target: buttonRect || null,
-          bottom: buttonRect?.bottom || 0,
-          left: buttonRect?.left || 0,
-          width: buttonRect?.width || 0,
-        });
+        // Get the target and button rectangles
+        handleResize();
+
+        // Attach resize event listener after mounting
+        window.addEventListener("resize", handleResize);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
       },
     });
 
@@ -113,16 +80,65 @@ export const NavBar = observer(
 
     // Function to handle button click
     const handleButtonClick = (buttonIndex: number, e: React.MouseEvent) => {
+      const element = e.currentTarget.children[buttonIndex];
       const buttonRect = e.currentTarget.getBoundingClientRect();
-      setIndicatorsPosition({
-        target: buttonRect,
-        bottom: buttonRect.bottom,
-        left: buttonRect.left,
-        width: buttonRect.width,
-      });
+      const targetRect = buttonsRef?.current?.getBoundingClientRect();
+
+      let indicatorsPositionUpdate: {
+        target: HTMLElement;
+        left: number;
+        width: number;
+      } | null;
+
+      if (targetRect) {
+        const relativeRect = relativeClientRect(buttonRect, targetRect);
+        indicatorsPositionUpdate = {
+          target: element,
+          left: relativeRect.left,
+          width: relativeRect.width,
+        };
+      } else {
+        indicatorsPositionUpdate = null;
+      }
+
+      setIndicatorsPosition(indicatorsPositionUpdate);
 
       // Set the activeButtonIndex when a button is clicked
       setActiveButtonIndex(buttonIndex);
+    };
+
+    // Function to handle resize
+    const handleResize = () => {
+      console.log("activeButtonIndex: ", activeButtonIndex);
+      const element = buttonsRef?.current?.children[activeButtonIndex];
+      const targetRect =
+        buttonsRef?.current?.children[
+          activeButtonIndex
+        ].getBoundingClientRect() || ({} as DOMRect);
+      const buttonRect =
+        (
+          indicatorsPosition?.target ||
+          buttonsRef.current?.children[activeButtonIndex]
+        )?.getBoundingClientRect() || ({} as DOMRect);
+
+      let indicatorsPositionUpdate: {
+        target: HTMLElement;
+        left: number;
+        width: number;
+      } | null;
+
+      if (targetRect) {
+        const relativeRect = relativeClientRect(buttonRect, targetRect);
+        indicatorsPositionUpdate = {
+          target: element,
+          left: relativeRect.left,
+          width: relativeRect.width,
+        };
+      } else {
+        indicatorsPositionUpdate = null;
+      }
+
+      setIndicatorsPosition(indicatorsPositionUpdate);
     };
 
     // Render the NavBar component
@@ -154,16 +170,14 @@ export const NavBar = observer(
               onClick={(e) => handleButtonClick(buttonIndex, e)}
             />
           ))}
+          <div
+            className="NavBar__Indicator"
+            style={{
+              left: indicatorsPosition?.left,
+              width: indicatorsPosition?.width,
+            }}
+          />
         </div>
-        {/* Render the indicator with dynamic style based on indicatorsPosition */}
-        <div
-          className="NavBar__Indicator"
-          style={{
-            top: indicatorsPosition?.bottom,
-            left: indicatorsPosition?.left,
-            width: indicatorsPosition?.width,
-          }}
-        />
       </div>
     );
   })

@@ -25,7 +25,7 @@ export interface INavLinkCount
   /** Props to apply directly to the container div of this component */
   containerProps?: React.HTMLProps<HTMLDivElement>;
   /** The count to display */
-  count: number;
+  count?: number;
   /** The size of the count */
   size?: number;
 }

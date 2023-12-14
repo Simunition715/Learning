@@ -15,7 +15,7 @@ export default {
   args: {
     provider: Icons,
     size: 30,
-    color: "rgba(0, 0, 0, 1)",
+    color: "#2c3d55",
     hoverColor: "blue",
   },
   argTypes: {

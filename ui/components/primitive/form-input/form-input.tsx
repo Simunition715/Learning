@@ -32,6 +32,10 @@ export interface IFormInput extends VariantProps<typeof FormInputCva.variants> {
   placeholder?: string | undefined;
   /** The label from the placeholder when focused */
   label?: string;
+  /** Flag indicating whether the input is for a password */
+  isPassword?: boolean;
+  /** Input type */
+  inputType?: "email" | "password" | "text" | "number";
 }
 
 /**
@@ -42,11 +46,18 @@ export interface IFormInput extends VariantProps<typeof FormInputCva.variants> {
  * customization of appearance in focused and unfocused states. The component supports the inclusion
  * of an optional icon and placeholder text for enhanced user experience.
  *
- *
  **/
 export const FormInput = observer(
   React.forwardRef<HTMLDivElement, IFormInput>((props: IFormInput, _ref) => {
-    const { className, containerProps, mode, placeholder, icon, label } = props;
+    const {
+      className,
+      containerProps,
+      mode,
+      placeholder,
+      icon,
+      label,
+      isPassword,
+    } = props;
 
     const [focusState, setFocusState] = React.useState(false);
     const [filledState, setFilledState] = React.useState("");
@@ -79,6 +90,7 @@ export const FormInput = observer(
         </label>
         {icon && React.cloneElement(icon, { className: "FormInput__Icon" })}
         <input
+          type={isPassword ? "password" : "text"}
           placeholder={placeholder}
           onFocus={handleFocus}
           onBlur={handleBlur}

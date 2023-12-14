@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Simunition715/learning#readme",
   "devDependencies": {
+    "@faker-js/faker": "8.3.1",
     "devops": "github:vega-studio/node-devops"
   },
   "type": "module",

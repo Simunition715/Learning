@@ -1,3 +1,36 @@
 .Breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  word-wrap: break-word;
+  color: #2c3d55;
+  margin: 15px;
 
+  & > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 800;
+    word-wrap: break-word;
+    color: #2c3d55;
+    gap: 5px;
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+  }
+
+  &__User {
+    display: flex;
+    flex-direction: row;
+    font-size: 11px;
+    font-weight: 800;
+    word-wrap: break-word;
+    color: rgba(56.31, 56.31, 56.31, 0.33);
+
+  }
 }

@@ -48,6 +48,18 @@ const tabs = [
     text: "Experiences",
     count: <NavLinkCount size={10} count={10} />,
   },
+  {
+    icon: (
+      <Icon
+        color="#b6b6b6"
+        provider={Icons}
+        shape={IconShape.CONTENT_COPY}
+        width={14}
+      />
+    ),
+    text: "Data",
+    count: <NavLinkCount size={10} count={196} />,
+  },
 ];
 
 const Template: Story<typeof NavBarProps> = (args) => {

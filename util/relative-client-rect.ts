@@ -4,7 +4,7 @@ import {
   DOMRectPadding,
 } from "./clone-client-rect";
 
-const NO_BOUNDS = (): DOMRectBounds => ({
+export const NO_BOUNDS = (): DOMRectBounds => ({
   bottom: 0,
   height: 0,
   left: 0,

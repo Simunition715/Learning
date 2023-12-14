@@ -24,6 +24,14 @@ export interface IBreadcrumbs
   className?: string;
   /** Props to apply directly to the container div of this component */
   containerProps?: React.HTMLProps<HTMLDivElement>;
+  /** The label for this component */
+  label?: string;
+  /** The onClick handler for this component */
+  onClick?: () => void;
+  /** The icon for this component */
+  icon?: React.ReactNode;
+  /** The user for this component */
+  user?: string;
 }
 
 /**
@@ -38,7 +46,13 @@ export const Breadcrumbs = observer(
         <div
           className={classnames(BreadcrumbsCva.variants({ mode }), className)}
           {...containerProps}
-        ></div>
+        >
+          <button onClick={props.onClick}>
+            {props.icon}
+            {props.label}
+          </button>
+          <span className="Breadcrumbs__User">/ {props.user}</span>
+        </div>
       );
     }
   )

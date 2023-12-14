@@ -3,6 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: start;
+  border-bottom: 1px solid rgba(56.31, 56.31, 56.31, 0.33);
+  background-color: white;
 
   &__Logo {
     display: flex;
@@ -20,6 +22,7 @@
   &__Indicator {
     display: flex;
     position: absolute;
+    bottom: 0px;
     height: 4px;
     background-color: var(--cataboom-blue, #039BFF);
     transition: left 0.3s ease-out;

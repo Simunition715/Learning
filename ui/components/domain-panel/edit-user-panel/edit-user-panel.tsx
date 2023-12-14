@@ -3,6 +3,7 @@ import { classnames } from "../../../../util/classnames";
 import { cva, VariantProps } from "../../../../util/cva";
 import { FormInput } from "../../primitive/form-input/form-input";
 import { Icon, Icons, IconShape } from "../../../components/primitive/icon";
+import { InformationPanel } from "../../primitive/information-panel/information-panel";
 import { observer } from "mobx-react";
 import { userImg } from "../../../assets/user-photos/user-photo";
 import { UserPhoto } from "../../primitive/user-photo/user-photo";
@@ -47,60 +48,68 @@ export const EditUserPanel = observer(
           className={classnames(EditUserPanelCva.variants({ mode }), className)}
           {...containerProps}
         >
-          <div className="EditUserPanel__UserPhoto">
-            <UserPhoto size="large" base64Image={userImg}></UserPhoto>
-          </div>
-          <div className="EditUserPanel__InputsTop">
-            <FormInput
-              icon={
-                <Icon
-                  color="rgba(0, 0, 0, 0.55)"
-                  shape={IconShape.PERSON}
-                  provider={Icons}
-                />
-              }
-              className="EditUserPanel__Input"
-              label="First name"
-              placeholder="First Name"
-            />
-            <FormInput
-              icon={
-                <Icon
-                  color="rgba(0, 0, 0, 0.55)"
-                  shape={IconShape.PERSON}
-                  provider={Icons}
-                />
-              }
-              className="EditUserPanel__Input"
-              label="Last name"
-              placeholder="Last Name"
+          <div className="EditUserPanel__InformationPanel">
+            <InformationPanel
+              title="Personal Information"
+              description="This information will be used to contact you, log your activity in the system, and let us look at your beautiful face whenever we want."
             />
           </div>
-          <div className="EditUserPanel__InputsBottom">
-            <FormInput
-              icon={
-                <Icon
-                  color="rgba(0, 0, 0, 0.55)"
-                  shape={IconShape.EMAIL}
-                  provider={Icons}
-                />
-              }
-              className="EditUserPanel__Input"
-              label="Email Address"
-              placeholder="Email Address"
-            />
-            <FormInput
-              icon={
-                <Icon
-                  color="rgba(0, 0, 0, 0.55)"
-                  shape={IconShape.PHONE}
-                  provider={Icons}
-                />
-              }
-              className="EditUserPanel__Input"
-              label="Phone Number"
-              placeholder="Phone Number"
-            />
+          <div className="EditUserPanel__Divider">
+            <div className="EditUserPanel__UserPhoto">
+              <UserPhoto size="large" base64Image={userImg}></UserPhoto>
+            </div>
+            <div className="EditUserPanel__InputsTop">
+              <FormInput
+                icon={
+                  <Icon
+                    color="rgba(0, 0, 0, 0.55)"
+                    shape={IconShape.PERSON}
+                    provider={Icons}
+                  />
+                }
+                className="EditUserPanel__Input"
+                label="First name"
+                placeholder="First Name"
+              />
+              <FormInput
+                icon={
+                  <Icon
+                    color="rgba(0, 0, 0, 0.55)"
+                    shape={IconShape.PERSON}
+                    provider={Icons}
+                  />
+                }
+                className="EditUserPanel__Input"
+                label="Last name"
+                placeholder="Last Name"
+              />
+            </div>
+            <div className="EditUserPanel__InputsBottom">
+              <FormInput
+                icon={
+                  <Icon
+                    color="rgba(0, 0, 0, 0.55)"
+                    shape={IconShape.EMAIL}
+                    provider={Icons}
+                  />
+                }
+                className="EditUserPanel__Input"
+                label="Email Address"
+                placeholder="Email Address"
+              />
+              <FormInput
+                icon={
+                  <Icon
+                    color="rgba(0, 0, 0, 0.55)"
+                    shape={IconShape.PHONE}
+                    provider={Icons}
+                  />
+                }
+                className="EditUserPanel__Input"
+                label="Phone Number"
+                placeholder="Phone Number"
+              />
+            </div>
           </div>
         </div>
       );
