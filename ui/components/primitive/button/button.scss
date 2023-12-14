@@ -1,0 +1,17 @@
+.ButtonComponent {
+  display: flex;
+  width: 284px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 4px;
+  background: var(--CataBoom-Blue, #039BFF);
+  color: #FFF;
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 100%;
+}

@@ -1,0 +1,67 @@
+.LoginPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 384px;
+  height: 364px;
+  padding: 25px;
+  box-shadow: 0px 3px 0px #e3e3e3;
+  border-radius: 8px;
+  background-color: white;
+
+  &__Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__InformationPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__Title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 18px;
+    word-wrap: break-word;
+    margin-bottom: 25px;
+  }
+
+  &__Description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    word-wrap: break-word;
+    margin-bottom: 25px;
+    width: 240px;
+  }
+
+  &__Inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+  }
+
+  &__Button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    & > button {
+      margin: 25px 0px 50px 0px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.EditUserPanel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  &__Divider {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 40px;
+    width: 100%;
+  }
+
+  &__UserPhoto {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    margin-bottom: 16px;
+  }
+
+  &__InformationPanel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  &__InputsTop {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+  }
+
+  &__InputsBottom {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+  }
+
+  &__Input {
+    display: flex;
+    flex: 1 1 auto;
+  }
+}

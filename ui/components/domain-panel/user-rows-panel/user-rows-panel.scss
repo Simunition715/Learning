@@ -1,0 +1,54 @@
+.UserRowsPanel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-content: space-between;
+  margin: 100px 0px 242px 0px;
+
+  &__List {
+   margin-bottom: 316px;
+  }
+
+  &__Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    height: 35px;
+    margin: 5px 40px 5px 40px;
+  }
+
+  &__Name {
+    display: flex;
+    flex-direction: row;
+    color: rgba(56.31, 56.31, 56.31, 0.66);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    word-wrap: break-word;
+    min-width: 294px;
+  }
+
+  &__Email {
+    display: flex;
+    flex-direction: row;
+    color: rgba(56.31, 56.31, 56.31, 0.66);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    word-wrap: break-word;
+    min-width: 294px;
+  }
+
+  &__Role {
+  display: flex;
+    flex-direction: row;
+    color: rgba(56.31, 56.31, 56.31, 0.66);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    word-wrap: break-word;
+    min-width: 294px;
+  }
+}

@@ -1,0 +1,20 @@
+.ActiveExperienceTab {
+  align-items: center;
+  border-radius: 4px;
+  background: var(--Orange, #FB8500);
+  display: flex;
+  width: 48.857px;
+  padding: 5px 6px;
+  justify-content: center;
+  gap: 10px;
+
+  &__text {
+    color: #FFF;
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}

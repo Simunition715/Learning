@@ -1,0 +1,77 @@
+.FormInput {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.07);
+  max-width: 284px;
+  min-width:  284px;
+
+  &__Icon {
+    padding-left: 20px;
+    width: 19px;
+    height: 19px;
+  }
+
+  & > input {
+    padding: 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0.55);
+    font-family: "RedHatDisplay", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+
+    &:focus {
+      outline: none;
+
+      &::placeholder {
+        color: transparent;
+        transition-delay: 0.5s;
+      }
+    }
+
+    &:not(:focus)::placeholder {
+      color: transparent;
+    }
+
+    &:not(:focus):not(:placeholder-shown) + .FormInput__Label {
+      top: -10px;
+      left: 13px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  &__Label {
+    position: absolute;
+    top: 22px;
+    left: 64px;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &.active {
+      top: -10px;
+      left: 13px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  &:focus-within {
+    .FormInput__Label {
+      top: -10px;
+      left: 13px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}
