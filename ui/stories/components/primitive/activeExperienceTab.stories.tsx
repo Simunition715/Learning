@@ -13,5 +13,5 @@ const Template: Story = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "Active",
+  status: "Active",
 };

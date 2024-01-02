@@ -1,9 +1,11 @@
 import React from "react";
 import { observer } from "mobx-react";
 
+import Button from "../../primitive/button/button";
 import Pill from "../../primitive/pill/pill";
 import { classnames } from "../../../../util/classnames";
 import { cva, VariantProps } from "../../../../util/cva";
+import { FormInput } from "../../primitive/form-input/form-input";
 import { groupReactChildren } from "../../../../util/group-react-children";
 import { NavBar } from "../../domain";
 import { UserRowsPanel } from "../../domain-panel";
@@ -40,6 +42,8 @@ export const Users = observer(
     const navBar = groups.get(NavBar);
     const userRows = groups.get(UserRowsPanel);
     const pill = groups.get(Pill);
+    const input = groups.get(FormInput);
+    const button = groups.get(Button);
 
     return (
       <div
@@ -48,6 +52,10 @@ export const Users = observer(
       >
         <div className="Users__Container">
           {navBar}
+          <div className="Users__Util">
+            {input}
+            {button}
+          </div>
           {userRows}
         </div>
         <div className="Users__Pill">{pill}</div>

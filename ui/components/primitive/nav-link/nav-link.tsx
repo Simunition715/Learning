@@ -55,7 +55,7 @@ export interface INavLink extends VariantProps<typeof NavLinkCva.variants> {
  */
 export const NavLink = observer(
   React.forwardRef<HTMLDivElement, INavLink>((props: INavLink, _ref) => {
-    const { className, containerProps, mode, isActive, onToggleActive } = props;
+    const { className, containerProps, mode, isActive } = props;
 
     const buttonClassName = classnames(
       "NavLink__Button",

@@ -1,0 +1,55 @@
+.SideNavLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid rgba(56.31, 56.31, 56.31, 0.33);
+  padding: 15px 20px 15px 20px;
+  cursor: pointer;
+
+  &__Button {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #FFF;
+    overflow: hidden;
+  }
+
+  &__Icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &--active > .Icon svg path {
+      fill: var(--cataboom-blue, #039BFF);
+    }
+  }
+
+  &__Text {
+    display: flex;
+    flex-direction: row;
+    color: #b6b6b6;
+    font-size: 13px;
+    font-family: 'RedHatDisplay', sans-serif;
+    font-weight: 800;
+    line-height: 13px;
+    justify-content: center;
+    word-wrap: break-word;
+
+    &--active {
+      color: #686b7a;
+    }
+  }
+
+  &__Text {
+    color: var(--Old-Gray, #686B7A);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+}

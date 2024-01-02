@@ -2,14 +2,14 @@ import React from "react";
 import { StoryFn } from "@storybook/react";
 
 import Pill from "../../../components/primitive/pill/pill";
+import { Button } from "../../../components/primitive/button/button";
 import { cvaOptionsToStorybook } from "../../../../util/cva";
+import { FormInput } from "../../../../ui/components/primitive/form-input/form-input";
 import { Icon, Icons, IconShape } from "../../../components/primitive/icon";
-import { ListView } from "../../../components/primitive/list-view/list.view";
 import { logo } from "../../../assets/user-photos/logo/logo";
 import { NavBar, Users, UsersCva } from "../../../components";
 import { NavLinkCount } from "../../../components/primitive/nav-link-count/nav-link-count";
-import { UserRow, UserRowsPanel } from "../../../components";
-import { UserRowProps } from "../../data/domain/user-row-props";
+import { UserRowsPanel } from "../../../components";
 import { UsersProps } from "../../data/layout/users-props";
 
 export default {
@@ -48,10 +48,16 @@ export default {
 const Template = () => (args: any) => (
   <Users {...args}>
     <NavBar logo={logo} {...args} />
+    <FormInput
+      icon={<Icon provider={Icons} shape={IconShape.SEARCH} />}
+      label="Quick Search"
+      placeholder="Quick Search"
+    />
+    <Button {...args} children="New User"></Button>
     <UserRowsPanel {...args} />
     <Pill
       children="Guide"
-      icon={<Icon provider={Icons} shape={IconShape.HELP} />}
+      icon={<Icon width={14} provider={Icons} shape={IconShape.HELP} />}
     />
   </Users>
 );

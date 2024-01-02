@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon, Icons, IconShape } from "../../primitive/icon";
 import "./button.scss";
 
 interface ButtonProps {
@@ -11,6 +12,7 @@ export class Button extends React.Component<ButtonProps> {
     const { children, onClick } = this.props;
     return (
       <button className="ButtonComponent" onClick={onClick}>
+        <Icon width={14} color="white" provider={Icons} shape={IconShape.ADD} />
         {children}
       </button>
     );

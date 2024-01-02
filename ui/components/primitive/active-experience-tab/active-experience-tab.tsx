@@ -2,13 +2,12 @@ import React from "react";
 import "./active-experience-tab.scss";
 
 interface ActiveExperienceTabProps {
-  children: React.ReactNode;
+  status: string;
 }
 
 export class ActiveExperienceTab extends React.Component<ActiveExperienceTabProps> {
   render() {
-    const { children } = this.props;
-    return <div className="ActiveExperienceTab">{children}</div>;
+    return <div className="ActiveExperienceTab">{this.props.status}</div>;
   }
 }
 

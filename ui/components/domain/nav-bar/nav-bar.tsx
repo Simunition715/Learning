@@ -4,6 +4,7 @@ import { cva, VariantProps } from "../../../../util/cva";
 import { INavLink, NavLink } from "../../primitive/nav-link/nav-link";
 import { Logo } from "../../primitive/logo/logo";
 import { observer } from "mobx-react";
+import { ProfileDropdown } from "../../primitive/profile-dropdown/profile-dropdown";
 import { relativeClientRect } from "../../../../util/relative-client-rect";
 import { useLifecycle } from "../../../../util/hooks/useLifecycle"; // Import the utility
 import "./nav-bar.scss";
@@ -109,7 +110,6 @@ export const NavBar = observer(
 
     // Function to handle resize
     const handleResize = () => {
-      console.log("activeButtonIndex: ", activeButtonIndex);
       const element = buttonsRef?.current?.children[activeButtonIndex];
       const targetRect =
         buttonsRef?.current?.children[
@@ -177,6 +177,9 @@ export const NavBar = observer(
               width: indicatorsPosition?.width,
             }}
           />
+        </div>
+        <div className="NavBar__Dropdown">
+          <ProfileDropdown />
         </div>
       </div>
     );

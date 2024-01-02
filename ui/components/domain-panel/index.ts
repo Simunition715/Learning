@@ -4,3 +4,4 @@ export * from "./nav-layout/nav-layout";
 export * from "./change-password/change-password";
 export * from "./login-panel/login-panel";
 export * from "./user-rows-panel/user-rows-panel";
+export * from "./experience-card/experience-card";

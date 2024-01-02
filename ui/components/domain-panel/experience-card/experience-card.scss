@@ -1,0 +1,36 @@
+.ExperienceCard {
+  display: flex;
+  width: 311px;
+  flex-shrink: 0;
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+  padding: 30px;
+  position: relative;
+  flex-direction: column;
+
+  &__ActiveStatus {
+    display: flex;
+    position: absolute;
+    top: -15px;
+    left: 30px
+
+  }
+
+  &__Label {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__Status {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 25px;
+  }
+
+  &__Image {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+}
