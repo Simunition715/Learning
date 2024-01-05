@@ -18,10 +18,14 @@ export default {
 };
 
 const Template = (children?: any) => (args: any) => (
-  <ExperienceCard {...args}>
-    {children}
-  </ExperienceCard>
+  <ExperienceCard {...args}>{children}</ExperienceCard>
 );
 
 export const Basic: StoryFn = Template().bind({});
 Basic.args = ExperienceCardProps();
+
+export const Add: StoryFn = Template().bind({});
+Add.args = {
+  ...ExperienceCardProps(),
+  mode: "add",
+};

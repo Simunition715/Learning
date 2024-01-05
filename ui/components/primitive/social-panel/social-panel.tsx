@@ -50,11 +50,21 @@ export const SocialPanel = observer(
           </div>
           <div className="SocialPanel__Actions">
             <div className="SocialPanel__Refresh">
-              <Icon provider={Icons} shape={IconShape.REPLAY} size={14} />
+              <Icon
+                provider={Icons}
+                shape={IconShape.REPLAY}
+                size={14}
+                color="#747F8F"
+              />
               {props.refresh}
             </div>
             <div className="SocialPanel__Share">
-              <Icon provider={Icons} shape={IconShape.SHARE} size={14} />
+              <Icon
+                provider={Icons}
+                shape={IconShape.SHARE}
+                size={14}
+                color="#747F8F"
+              />
               {props.share}
             </div>
           </div>

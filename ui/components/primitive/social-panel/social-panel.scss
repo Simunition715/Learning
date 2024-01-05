@@ -5,6 +5,7 @@
   align-items: center;
   gap: 19px;
   padding-top: 25px;
+  padding-bottom: 30px;
   border-top: 1px solid rgba(56.31, 56.31, 56.31, 0.33);
 
   &__Actions {
@@ -17,19 +18,19 @@
   &__Name {
     font-size: 14px;
     font-weight: 800;
-    color: #2c3d55;
+    color: #747F8F;
   }
 
   &__Label {
     font-size: 14px;
     font-weight: 400;
-    color: #2c3d55;
+    color: #747F8F;
   }
 
   &__Share {
     font-size: 14px;
     font-weight: 400;
-    color: #2c3d55;
+    color: #747F8F;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,7 +42,7 @@
     flex-direction: row;
     font-size: 14px;
     font-weight: 400;
-    color: #2c3d55;
+    color: #747F8F;
     align-items: center;
     gap: 5px;
   }

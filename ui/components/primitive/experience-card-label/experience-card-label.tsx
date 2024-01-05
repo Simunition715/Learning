@@ -1,6 +1,7 @@
 import React from "react";
 import { classnames } from "../../../../util/classnames";
 import { cva, VariantProps } from "../../../../util/cva";
+import { Icon, Icons, IconShape } from "../icon";
 import { observer } from "mobx-react";
 import "./experience-card-label.scss";
 
@@ -44,6 +45,14 @@ export const ExperienceCardLabel = observer(
           {...containerProps}
         >
           {children}
+          <span className="ExperienceCardLabel__Icon">
+            <Icon
+              provider={Icons}
+              shape={IconShape.EDIT}
+              size={13}
+              color="#B6B6B6"
+            />
+          </span>
         </div>
       );
     }

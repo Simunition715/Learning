@@ -2,16 +2,29 @@
   display: flex;
   width: 311px;
   flex-shrink: 0;
+  border-radius: 8px;
   border: 1px solid #E3E3E3;
-  border-radius: 5px;
-  padding: 30px;
+  background: #FFF;
+  box-shadow: 0px 3px 0px 0px #E3E3E3;
+  margin-left: 40px;
   position: relative;
   flex-direction: column;
+
+  &__Add {
+    width: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    background: #F6F6F6;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 
   &__ActiveStatus {
     display: flex;
     position: absolute;
-    top: -15px;
+    top: -13px;
     left: 30px
 
   }

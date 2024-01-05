@@ -1,0 +1,21 @@
+.Experiences {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+
+  &__Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 40px;
+  }
+
+  &__Footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
