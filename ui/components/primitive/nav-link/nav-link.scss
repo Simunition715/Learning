@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    fill: #b6b6b6;
 
     &--active > .Icon svg path {
       fill: var(--cataboom-blue, #039BFF);

@@ -1,0 +1,21 @@
+.SettingsInformation {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 90px);
+  justify-content: flex-start;
+  gap: 10px;
+  color: var(--Dark-Navy, #2C3D55);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  border-bottom: 1px solid #E3E3E3;
+  padding: 45px;
+
+  &__Text {
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,12 @@
+import { ISettingsInformation } from "../../../components";
+import { makeObservable, observable } from "mobx";
+
+class Store implements ISettingsInformation {
+  @observable className?: string = void 0;
+
+  constructor() {
+    makeObservable(this);
+  }
+}
+
+export const SettingsInformationProps = () => new Store();

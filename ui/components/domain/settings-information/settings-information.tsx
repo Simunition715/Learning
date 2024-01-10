@@ -3,13 +3,13 @@ import { observer } from "mobx-react";
 
 import { classnames } from "../../../../util/classnames";
 import { cva, VariantProps } from "../../../../util/cva";
-import { ExperienceCard } from "../experience-card/experience-card";
-import "./experience-panel.scss";
+import { Icon, Icons, IconShape } from "../../../components/primitive/icon";
+import "./settings-information.scss";
 
 /**
  * Rendering variants of this component
  */
-export const ExperiencePanelCva = cva("ExperiencePanel", {
+export const SettingsInformationCva = cva("SettingsInformation", {
   variants: {
     mode: {},
   },
@@ -19,35 +19,36 @@ export const ExperiencePanelCva = cva("ExperiencePanel", {
 /**
  * Props available to this component
  */
-export interface IExperiencePanel
-  extends VariantProps<typeof ExperiencePanelCva.variants> {
+export interface ISettingsInformation
+  extends VariantProps<typeof SettingsInformationCva.variants> {
   /** Provides a custom class name to the container of this component */
   className?: string;
   /** Props to apply directly to the container div of this component */
   containerProps?: React.HTMLProps<HTMLDivElement>;
-  /** The children of this component */
-  children?: React.ReactNode;
+  /** The icon to display */
+  icon?: React.ReactNode;
+  /** The text to display */
+  text?: string;
 }
 
 /**
  * TODO: Write the component description for documentation here
  */
-export const ExperiencePanel = observer(
-  React.forwardRef<HTMLDivElement, IExperiencePanel>(
-    (props: IExperiencePanel, _ref) => {
+export const SettingsInformation = observer(
+  React.forwardRef<HTMLDivElement, ISettingsInformation>(
+    (props: ISettingsInformation, _ref) => {
       const { className, containerProps, mode } = props;
 
       return (
         <div
           className={classnames(
-            ExperiencePanelCva.variants({ mode }),
+            SettingsInformationCva.variants({ mode }),
             className
           )}
           {...containerProps}
         >
-          <ExperienceCard />
-          <ExperienceCard />
-          <ExperienceCard mode={"add"} />
+          <Icon provider={Icons} shape={IconShape.HELP} color="#039BFF" />
+          {props.text}
         </div>
       );
     }

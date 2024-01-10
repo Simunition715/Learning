@@ -24,7 +24,7 @@
   &__Indicator {
     display: flex;
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     height: 4px;
     background-color: var(--cataboom-blue, #039BFF);
     transition: left 0.3s ease-out;

@@ -29,8 +29,11 @@ export interface ISideNavLink
   icon?: React.ReactNode;
   /** The text to display in the link */
   text?: string;
+  /** The count to display in the link */
   isActive: boolean;
+  /** Callback function to update the active state in the parent */
   onToggleActive: (isActive: boolean) => void;
+  /** Event handler for button click */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -57,7 +60,6 @@ export const SideNavLink = observer(
       });
 
       const handleClick = (e: React.MouseEvent) => {
-        console.log("clicked");
         if (props.onToggleActive) {
           props.onToggleActive(!props.isActive);
         }
@@ -71,9 +73,13 @@ export const SideNavLink = observer(
           className={classnames(SideNavLinkCva.variants({ mode }), className)}
           {...containerProps}
         >
-          <button onClick={handleClick} className={buttonClassName}>
-            <div className={iconClassName}>{props.icon}</div>
-            <div className={textClassName}>{props.text}</div>
+          <button
+            onClick={handleClick}
+            type="button"
+            className={buttonClassName}
+          >
+            <span className={iconClassName}>{props.icon}</span>
+            <span className={textClassName}>{props.text}</span>
           </button>
         </div>
       );

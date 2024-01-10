@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    fill: #b6b6b6;
 
     &--active > .Icon svg path {
       fill: var(--cataboom-blue, #039BFF);
@@ -34,7 +35,6 @@
     flex-direction: row;
     color: #b6b6b6;
     font-size: 13px;
-    font-family: 'RedHatDisplay', sans-serif;
     font-weight: 800;
     line-height: 13px;
     justify-content: center;
@@ -43,13 +43,5 @@
     &--active {
       color: #686b7a;
     }
-  }
-
-  &__Text {
-    color: var(--Old-Gray, #686B7A);
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
   }
 }

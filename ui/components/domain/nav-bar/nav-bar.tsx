@@ -84,6 +84,8 @@ export const NavBar = observer(
       const element = e.currentTarget.children[buttonIndex];
       const buttonRect = e.currentTarget.getBoundingClientRect();
       const targetRect = buttonsRef?.current?.getBoundingClientRect();
+      console.log("e.currentTarget", buttonRect);
+      console.log("targetRect", targetRect);
 
       let indicatorsPositionUpdate: {
         target: HTMLElement;
